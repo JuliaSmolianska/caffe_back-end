@@ -4,8 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 const JSON_FILE_PATH = path.resolve('data', 'dishes.json');
-
-//const JSON_FILE_PATH = 'C:\\Users\\sjuli\\Desktop\\кафе\\cafe_back-end\\data\\dishes.json';
+/*
 const getAllDishesFetch = async (req, res) => {
   try {
     const data = await fs.promises.readFile(JSON_FILE_PATH, 'utf-8');
@@ -16,6 +15,28 @@ const getAllDishesFetch = async (req, res) => {
     res.status(500).json({ error: 'Server Error' });
   }
 };
+*/
+const getAllDishesFetch = async (req, res) => {
+  try {
+    const data = await fs.promises.readFile(JSON_FILE_PATH, 'utf-8');
+    const dishes = JSON.parse(data);
+
+    // Group dishes by category
+    const groupedDishes = dishes.reduce((acc, dish) => {
+      const { category } = dish;
+      if (!acc[category]) {
+        acc[category] = [];
+      }
+      acc[category].push(dish);
+      return acc;
+    }, {});
+
+    res.status(200).json(groupedDishes);
+  } catch (error) {
+    res.status(500).json({ error: 'Server Error' });
+  }
+};
+
 
 const addDish = async (req, res) => {
   try {

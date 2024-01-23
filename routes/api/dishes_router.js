@@ -3,15 +3,15 @@ import dishesController from "../../controllers/dishes_controller.js";
 import { isEmptyBody } from "../../middlewares/index.js";
 //import { isValidId } from "../../middlewares/isValidId.js";
 //import validateBody from "../../decorators/validateBody.js";
-//import { addConsumedWaterSchema, updateConsumedWaterSchema } from "../../db/models/consumedWater.js"
+import { addDishSchema, updateDishSchema } from "../../models/Dishes.js"
 
 const dishesRouter = express.Router();
 
 dishesRouter.get('/', dishesController.getAllDishesFetch);
 
-dishesRouter.post('/', isEmptyBody, dishesController.addDish);
+dishesRouter.post('/', isEmptyBody, validateBody(addDishSchema), dishesController.addDish);
 
-dishesRouter.put('/:dishId', isEmptyBody, dishesController.updateDishId);
+dishesRouter.patch('/:dishId', isEmptyBody, validateBody(updateDishSchema), dishesController.updateDishId);
 
 dishesRouter.delete('/:dishId', dishesController.deleteDishId)
 
