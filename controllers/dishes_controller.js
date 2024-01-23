@@ -62,7 +62,7 @@ const updateDishId = async (req, res) => {
 
   try {
     const data = await fs.promises.readFile(JSON_FILE_PATH, 'utf-8');
-    let dishes = JSON.parse(data);
+    const dishes = JSON.parse(data);
 
     const indexToUpdate = dishes.findIndex(dish => dish.id === parseInt(dishId));
 
