@@ -4,18 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 const JSON_FILE_PATH = path.resolve('data', 'dishes.json');
-/*
-const getAllDishesFetch = async (req, res) => {
-  try {
-    const data = await fs.promises.readFile(JSON_FILE_PATH, 'utf-8');
-    const dishes = JSON.parse(data);
 
-    res.status(200).json({ dishes });
-  } catch (error) {
-    res.status(500).json({ error: 'Server Error' });
-  }
-};
-*/
 const getAllDishesFetch = async (req, res) => {
   try {
     const data = await fs.promises.readFile(JSON_FILE_PATH, 'utf-8');
@@ -59,12 +48,14 @@ const addDish = async (req, res) => {
 const updateDishId = async (req, res) => {
   const { dishId } = req.params;
   const updatedDishData = req.body;
+  console.log(dishId)
 
   try {
     const data = await fs.promises.readFile(JSON_FILE_PATH, 'utf-8');
     const dishes = JSON.parse(data);
+    console.log(data)
 
-    const indexToUpdate = dishes.findIndex(dish => dish.id === parseInt(dishId));
+    const indexToUpdate = dishes.findIndex(dish => dish.id === dishId);
 
     if (indexToUpdate === -1) {
       res.status(404).json({ error: 'Dish not found' });
@@ -90,7 +81,7 @@ const deleteDishId = async (req, res) => {
     const data = await fs.promises.readFile(JSON_FILE_PATH, 'utf-8');
     let dishes = JSON.parse(data);
 
-    const indexToRemove = dishes.findIndex(dish => dish.id === parseInt(dishId));
+    const indexToRemove = dishes.findIndex(dish => dish.id === dishId);
 
     if (indexToRemove === -1) {
       res.status(404).json({ error: 'Dish not found' });
