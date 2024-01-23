@@ -1,4 +1,3 @@
-// app.js
 import express from 'express';
 import logger from 'morgan';
 import cors from 'cors';
@@ -13,10 +12,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
-// Додавання методу setDishesData до об'єкта app
 app.setDishesData = (dishes) => {
-  // Реалізуйте логіку для обробки даних страв
-  console.log('Setting dishes data:', dishes);
+  //console.log('Setting dishes data:', dishes);
 };
 
 app.use("/dishes", dishesRouter);
