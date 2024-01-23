@@ -5,6 +5,7 @@ const availability = ["в наличии", "нет в наличии"];
 const portionSize = ["стандарт", "большая"];
 
 export const addDishSchema = Joi.object({
+  id: Joi.string().required().messages({ "any.required": "missing required id field" }),
   category: Joi.string().valid(...category).required().messages({ "any.required": "missing required category field" }),
   name: Joi.string().required().messages({ "any.required": "missing required name field" }),
   price: Joi.number().min(1).max(100000).required().messages({ "any.required": "missing required price field" }),
