@@ -1,4 +1,3 @@
-// server.js
 import app from './app.js';
 import fs from 'fs';
 import "dotenv/config";
