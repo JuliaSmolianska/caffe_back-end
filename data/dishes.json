@@ -18,5 +18,15 @@
     "portionSize": "стандарт",
     "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/",
     "availability": true
+  },
+  {
+    "id": "ozgimaQIq9ci5LIPWow6Y",
+    "category": "Вареники",
+    "name": "Вареники с творогом",
+    "description": "Вареники с творогом",
+    "price": "111",
+    "portionSize": "стандарт",
+    "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/",
+    "availability": true
   }
 ]
