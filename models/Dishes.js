@@ -13,7 +13,7 @@ export const addDishSchema = Joi.object({
   photo: Joi.string().required().messages({ "any.required": "missing required photo field" }),
   availability: Joi.boolean().required().messages({ "any.required": "missing required availability field" }),
   sale: Joi.boolean().required().messages({ "any.required": "missing required sale field" }),
-  newPrice: Joi.number().min(1).max(100000).required().messages({ "any.required": "missing required new price field" }),
+  newPrice: Joi.number().min(0).max(100000).required().messages({ "any.required": "missing required new price field" }),
 })
 
 export const updateDishSchema = Joi.object({
@@ -24,5 +24,5 @@ export const updateDishSchema = Joi.object({
   photo: Joi.string(),
   availability: Joi.boolean(),
   sale: Joi.boolean(),
-  newPrice: Joi.number().min(1).max(100000)
+  newPrice: Joi.number().min(0).max(100000)
 })
