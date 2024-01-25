@@ -32,7 +32,7 @@
     "portionSize": "стандарт",
     "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/",
     "availability": true,
-    "sale": false,
-    "newPrise": 0
+    "sale": true,
+    "newPrise": 99
   }
 ]
